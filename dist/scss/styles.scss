@@ -1,0 +1,194 @@
+//color variables
+$main_background_color: #4e2727;
+$white: #ffffff;
+$black: #000000;
+$button_hover_background_color: #28597a;
+$button_hover_color: #ccc;
+$button_active_click_color: #1b435e;
+$top_digital_background_color: #242424;
+$red: red;
+$input_box_color: #1a1a1a;
+$input_text_color: #a2a2a2;
+$input_shadow: hsl(0, 0%, 40%);
+$input_shadow_2: hsl(0, 0%, 2%);
+
+
+//fonts
+$font_0: digitalFont;
+$font_1: Arial;
+
+//urls
+$url_0: url(fonts/digital-7.ttf);
+
+body {
+	background-color: $main_background_color;
+}
+
+//this holds the whole stopper together
+.centerDiv {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -230px 0 0 -180px;
+}
+
+//font definition
+@font-face {
+	font-family: $font_0;
+	src: $url_0;
+}
+//holds the top main buttons
+.topButton {
+	background: $white;
+	padding: 7.5px;
+	font-size: 21px;
+	outline: none;
+	color: $black;
+	&:enabled {
+		cursor: pointer;
+	}
+	&:hover {
+		&:enabled {
+			background: $button_hover_background_color;
+			color: $button_hover_color;
+		}
+		&:disabled {
+		}
+	}
+	&:active {
+		background: $button_active_click_color;
+	}
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+//clock holder -- outer
+.innerFirst {
+	height: 92px;
+	background-color: $top_digital_background_color;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+//holds the top digital clock - inner
+.clockBox {
+	width: 360px;
+	position: relative;
+}
+
+//The actual digital numbers of top clock
+.digital {
+  font-family: $font_0;
+  color: #9bce35;
+  font-size: 55px;
+  left:26%;
+  top:20%;
+  position: relative;
+}
+
+//animation when running
+.counterRunning {
+	animation: blinker 0.25s cubic-bezier(0.5, 0.5, 1, 1) infinite alternate;
+}
+@keyframes blinker {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+//holder of two buttons of start/stop and lap/clear
+.innerSecond {
+	height: 44px;
+}
+
+//start/stop button
+.secondLeft {
+	width: 69.9%;
+	border-bottom-left-radius: 15px;
+}
+
+// lap/clear button
+.secondRight {
+	float: right;
+	width: 30%;
+	border-bottom-right-radius: 15px;
+}
+
+//each is one line of laps
+.lapsBox {
+	height: 50px;
+}
+
+//while thin line to seperate between laps display
+.separator {
+	background-color: $white;
+	height: 1px;
+}
+
+//small digital watch for each lap
+.smallDigital {
+	width: 28%;
+	top: 10px;
+	font-family: $font_0;
+	color: $white;
+	float: left;
+	font-size: 30px;
+	text-align: left;
+	position: relative;
+}
+
+//holds the description for each lap - editable
+.descriptionText {
+	top: 15px;
+	width: 170px;
+	white-space: nowrap;
+	overflow: hidden;
+	padding-left: 10px;
+	float: left;
+	position: relative;
+	font-family: $font_1;
+	color: $white;
+	font-size: 20px;
+}
+
+//red button to remove laps
+.removeButton {
+	font-family: $font_1;
+	background: $red;
+	float: right;
+	position: relative;
+	top: 15px;
+	background: $red;
+	padding: 2.5px;
+	color: $white;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
+	//red button hover behaviour
+	&:hover {
+		background: $button_hover_background_color;
+		color: $button_hover_color;
+	}
+	
+	//red button when clicked
+	&:active {
+		background: $button_active_click_color;
+	}
+}
+
+//when editing laps - special formatting for input text
+.myInput {
+	position: relative;
+	background: $input_box_color;
+	border: 2px;
+	height: 5px;
+	padding: 0.8em;
+	color: $input_text_color;
+	font-size: 0.8em;
+	outline: none;
+	box-shadow: 0 4px 6px -5px $input_shadow, inset 0 4px 6px -5px $input_shadow_2;
+}

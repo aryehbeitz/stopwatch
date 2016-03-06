@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Stop Watch</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/angular.js"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body ng-app="stopwatch" ng-controller="userCtrl as userC">
+	<div class="centerDiv">
+		<div class="clockBox">
+			<div class="innerFirst">
+			<!-- top main time digital clock -->
+				<h1 class="digital">{{userC.mins}}<span ng-class="{'counterRunning' : userC.ourData.running == true}">:</span>{{userC.secs}}<span ng-class="{'counterRunning' : userC.ourData.running == true}">.</span>{{userC.milliSecs}}</h1>
+			</div>
+		  <div class="innerSecond">
+		  <!-- button for start, continue -->
+		  	<button class="topButton secondLeft" ng-click="userC.startStop()">{{userC.startStopText}}</button>
+		  	<!-- button for lap or clear -->
+		  	<button class="topButton secondRight" ng-disabled = "userC.ourData.running == false && userC.ourData.startTime == 0" ng-click="userC.lapReset()">{{userC.lapResetText}}</button>
+		  </div>
+		</div>
+		<div class="lapsBox" ng-repeat-start="lap in userC.ourData.laps">
+			<div class="myRow">
+			<!-- the digital clock -->
+				<div class="smallDigital">{{lap.time}}</div>
+				<!-- lap title and input whehn clicking to edit -->
+				<div ng-model = "lap.title" class="descriptionText" ng-mousedown="userC.editDescription($index,'enter')" ><input maxlength="18" ng-model="lap.title" ng-show="lap.showInput == true" type="text" class="myInput" ng-blur="userC.editDescription($index,'leave')">{{lap.title}}</div>
+				<!-- remove should only be shown when there is what to delete -->
+				<div ng-if = "lap.time !== ''" ng-click = "userC.removeLap($index)" class="removeButton">REMOVE</div>
+			</div>
+		</div>
+		<div ng-if = !$last class="separator" ng-repeat-end></div>
+		<!-- ng-repeat ends here -->
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+body {
+  background-color: #4e2727; }
+
+.centerDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -230px 0 0 -180px; }
+
+@font-face {
+  font-family: digitalFont;
+  src: url(fonts/digital-7.ttf); }
+
+.topButton {
+  background: #ffffff;
+  padding: 7.5px;
+  font-size: 21px;
+  outline: none;
+  color: #000000; }
+  .topButton:enabled {
+    cursor: pointer; }
+  .topButton:hover:enabled {
+    background: #28597a;
+    color: #ccc; }
+  .topButton:active {
+    background: #1b435e; }
+  .topButton:disabled {
+    cursor: not-allowed; }
+
+.innerFirst {
+  height: 92px;
+  background-color: #242424;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px; }
+
+.clockBox {
+  width: 360px;
+  position: relative; }
+
+.digital {
+  font-family: digitalFont;
+  color: #9bce35;
+  font-size: 55px;
+  left: 26%;
+  top: 20%;
+  position: relative; }
+
+.counterRunning {
+  animation: blinker 0.25s cubic-bezier(0.5, 0.5, 1, 1) infinite alternate; }
+
+@keyframes blinker {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+.innerSecond {
+  height: 44px; }
+
+.secondLeft {
+  width: 69.9%;
+  border-bottom-left-radius: 15px; }
+
+.secondRight {
+  float: right;
+  width: 30%;
+  border-bottom-right-radius: 15px; }
+
+.lapsBox {
+  height: 50px; }
+
+.separator {
+  background-color: #ffffff;
+  height: 1px; }
+
+.smallDigital {
+  width: 28%;
+  top: 10px;
+  font-family: digitalFont;
+  color: #ffffff;
+  float: left;
+  font-size: 30px;
+  text-align: left;
+  position: relative; }
+
+.descriptionText {
+  top: 15px;
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 10px;
+  float: left;
+  position: relative;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px; }
+
+.removeButton {
+  font-family: Arial;
+  background: red;
+  float: right;
+  position: relative;
+  top: 15px;
+  background: red;
+  padding: 2.5px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer; }
+  .removeButton:hover {
+    background: #28597a;
+    color: #ccc; }
+  .removeButton:active {
+    background: #1b435e; }
+
+.myInput {
+  position: relative;
+  background: #1a1a1a;
+  border: 2px;
+  height: 5px;
+  padding: 0.8em;
+  color: #a2a2a2;
+  font-size: 0.8em;
+  outline: none;
+  box-shadow: 0 4px 6px -5px #666666, inset 0 4px 6px -5px #050505; }
